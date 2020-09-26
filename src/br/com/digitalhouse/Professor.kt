@@ -1,9 +1,13 @@
 package br.com.digitalhouse
 
-abstract class Professor (val nome: String, val sobrenome: String, val tempoCasa: Int, val codigoProfessor: Int) {
+open class Professor (val nome: String, val sobrenome: String, val tempoCasa: Int, val codigoProfessor: Int) {
 
     override fun equals(other: Any?): Boolean {
-           return !(other == null || other != codigoProfessor)
+        return !(other == null || other != codigoProfessor)
+    }
+
+    override fun toString(): String {
+        return "\nProfessor - Nome:$nome $sobrenome | tempoCasa:$tempoCasa | codigoProfessor:$codigoProfessor"
     }
 
 

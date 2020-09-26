@@ -6,5 +6,9 @@ class Aluno(val nome:String, val sobrenome: String, val codigoAluno: Int) {
         return !(other == null || other != codigoAluno)
     }
 
+    override fun toString(): String {
+        return "\nAluno - Nome:$nome $sobrenome | codigoAluno:$codigoAluno"
+    }
+
 
 }
