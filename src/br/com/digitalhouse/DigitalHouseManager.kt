@@ -28,7 +28,7 @@ class DigitalHouseManager  {
             listaDeCursos.remove(temp)
             println("Curso ${temp.nome} Removido")
         }else{
-            println("Curso não encontrado")
+            println("Curso não encontrado no sistema")
         }
     }
 
@@ -60,7 +60,7 @@ class DigitalHouseManager  {
             listaDeProfessores.remove(temp)
             println("Professor ${temp.nome} ${temp.sobrenome} Removido")
         }else{
-            println("Professor não encontrado")
+            println("Professor não encontrado no sistema")
         }
     }
 
@@ -81,7 +81,7 @@ class DigitalHouseManager  {
 
         if(tempCurso != null && tempAluno != null){
             if(tempCurso.adicionarUmAluno(tempAluno)){
-                var data = LocalDate.now()
+                val data = LocalDate.now()
                 listaDeMatriculas.add(Matricula(tempAluno,tempCurso,data))
                 println("Matrícula Realizada - Aluno:${tempAluno.nome} ${tempAluno.sobrenome} - Código:${tempAluno.codigoAluno} - Curso: ${tempCurso.nome}")
             }else{
@@ -99,7 +99,7 @@ class DigitalHouseManager  {
             tempCurso.professorTitular = tempProfessorTitular as ProfessorTitular
             tempCurso.professorAdjunto = tempProfessorAdjunto as ProfessorAdjunto
         }else{
-            println("Não foi possivel alocar professores na curso")
+            println("Não foi possivel alocar professores no curso")
         }
     }
 

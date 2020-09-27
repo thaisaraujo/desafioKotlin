@@ -12,32 +12,16 @@ class Curso (val nome: String, val codigoCurso: Int, var qtdMaxAlunos: Int){
         }
 
     override fun toString(): String {
-        var temProfTitular : String = ""
-        var tempProfAdjunto : String = ""
-        var tempListaAluno : String = ""
-
         try {
-            if(professorTitular != null){
-                temProfTitular = professorTitular.toString()
-            }else{
-                temProfTitular = "Professor Titular Não Alocado"
-            }
-
-            if(professorAdjunto != null){
-                tempProfAdjunto = professorAdjunto.toString()
-            }else{
-                tempProfAdjunto = "Professor Adjunto Não Alocado"
-            }
-
-            if(listaDeAlunos != null && listaDeAlunos.isNotEmpty()){
-                tempListaAluno = listaDeAlunos.toString()
-            }else{
-                tempListaAluno = "Não há Lita de Alunos"
-            }
-            return "\nCurso - Nome$nome | Código do Curso:$codigoCurso | Max de Alunos:$qtdMaxAlunos | $temProfTitular | $tempProfAdjunto | $tempListaAluno"
-
+            return "\nCurso - Nome$nome | Código do Curso:$codigoCurso | Max de Alunos:$qtdMaxAlunos " +
+                    "| Professor Titular: ${professorTitular.toString()}" +
+                    "| Professor Adjunto: ${professorAdjunto.toString()}" +
+                    "| Lista de Alunos: ${listaDeAlunos.toString()}"
         }catch (ex : Exception){
-            return "\nCurso - Nome$nome | Código do Curso:$codigoCurso | Max de Alunos:$qtdMaxAlunos"
+            return "\nCurso - Nome$nome | Código do Curso:$codigoCurso | Max de Alunos:$qtdMaxAlunos" +
+                    "| Professor Titular não alocado" +
+                    "| Professor Adjunto não alocado" +
+                    "| Não há lista de alunos"
         }
     }
 
@@ -55,7 +39,7 @@ class Curso (val nome: String, val codigoCurso: Int, var qtdMaxAlunos: Int){
             listaDeAlunos.remove(umAluno)
             println("Aluno ${umAluno.nome} ${umAluno.sobrenome} removido do Curso ${this.nome}")
         } else {
-            println("Aluno não encontrado")
+            println("Aluno não encontrado na lista do curso")
         }
     }
 
