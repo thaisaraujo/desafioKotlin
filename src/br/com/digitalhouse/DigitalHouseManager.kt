@@ -28,7 +28,7 @@ class DigitalHouseManager  {
             listaDeCursos.remove(temp)
             println("Curso ${temp.nome} Removido")
         }else{
-            println("Curso não encontrado no sistema")
+            println("Curso não encontrado")
         }
     }
 
@@ -60,7 +60,7 @@ class DigitalHouseManager  {
             listaDeProfessores.remove(temp)
             println("Professor ${temp.nome} ${temp.sobrenome} Removido")
         }else{
-            println("Professor não encontrado no sistema")
+            println("Professor não encontrado")
         }
     }
 
@@ -99,8 +99,7 @@ class DigitalHouseManager  {
             tempCurso.professorTitular = tempProfessorTitular as ProfessorTitular
             tempCurso.professorAdjunto = tempProfessorAdjunto as ProfessorAdjunto
         }else{
-            println("Não foi possivel alocar professores no curso")
+            println("Não foi possivel alocar Professores no Curso")
         }
     }
-
 }
