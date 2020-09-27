@@ -41,10 +41,8 @@ class Curso (val nome: String, val codigoCurso: Int, var qtdMaxAlunos: Int){
         }
     }
 
-
-
     fun adicionarUmAluno(umAluno: Aluno): Boolean {
-        if(!listaDeAlunos.contains(umAluno)) {
+        if(listaDeAlunos.size < qtdMaxAlunos) {
             listaDeAlunos.add(umAluno)
             return true
         } else {
@@ -55,6 +53,7 @@ class Curso (val nome: String, val codigoCurso: Int, var qtdMaxAlunos: Int){
     fun excluirUmAluno(umAluno: Aluno){
         if(listaDeAlunos.contains(umAluno))
             listaDeAlunos.remove(umAluno)
+            println("Aluno ${umAluno.nome} ${umAluno.sobrenome} Removido do Curso")
     }
 
 

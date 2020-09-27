@@ -1,6 +1,7 @@
 package br.com.digitalhouse
 
 import java.time.LocalDate
+import br.com.digitalhouse.Curso as Curso
 
 class DigitalHouseManager  {
 
@@ -11,31 +12,63 @@ class DigitalHouseManager  {
 
 
     fun registrarCurso(nome: String, codigoCurso: Int, qtdMaxAluno: Int){
-        listaDeCursos.add(Curso(nome, codigoCurso, qtdMaxAluno))
+        val temp = Curso(nome, codigoCurso, qtdMaxAluno)
+
+        if(!listaDeCursos.contains(temp)) {
+            listaDeCursos.add(temp)
+            println("Curso ${temp.nome} Registrado")
+        }else{
+            println("Código do Curso Duplicado")
+        }
     }
 
     fun excluirCurso(codigoCurso: Int){
         val temp = listaDeCursos.find {curso -> codigoCurso.equals(curso.codigoCurso) }
-        if(temp != null)
+        if(temp != null){
             listaDeCursos.remove(temp)
+            println("Curso ${temp.nome} Removido")
+        }
     }
 
     fun registrarProfessorAdjunto(nome: String, sobrenome: String, codigoProfessor: Int, quantidadeDeHoras: Int) {
-        listaDeProfessores.add(ProfessorAdjunto(nome, sobrenome, 0,codigoProfessor, quantidadeDeHoras))
+        val temp = ProfessorAdjunto(nome, sobrenome, 0,codigoProfessor, quantidadeDeHoras)
+
+        if(!listaDeProfessores.contains(temp)){
+            listaDeProfessores.add(temp)
+            println("Professor ${temp.nome} ${temp.sobrenome} Registrado")
+        }else{
+            println("Código do Professor Adjunto Duplicado")
+        }
     }
 
     fun registrarProfessorTitular(nome: String, sobrenome: String, codigoProfessor: Int, especialidade: String){
-        listaDeProfessores.add(ProfessorTitular(nome, sobrenome, 0, codigoProfessor, especialidade))
+        val temp = ProfessorTitular(nome, sobrenome, 0, codigoProfessor, especialidade)
+
+        if(!listaDeProfessores.contains(temp)){
+            listaDeProfessores.add(temp)
+            println("Professor ${temp.nome} ${temp.sobrenome} Registrado")
+        }else{
+            println("Código do Professor Titular Duplicado")
+        }
     }
 
     fun excluirProfessor(codigoProfessor: Int){
         val temp = listaDeProfessores.find{professor -> codigoProfessor.equals(professor.codigoProfessor)}
-        if(temp != null)
+        if(temp != null) {
             listaDeProfessores.remove(temp)
+            println("Professor ${temp.nome} ${temp.sobrenome} Removido")
+        }
     }
 
     fun registrarAluno(nome: String, sobrenome: String, codigoAluno: Int){
-        listaDeAlunos.add(Aluno(nome, sobrenome, codigoAluno))
+        val temp = Aluno(nome, sobrenome, codigoAluno)
+
+        if(!listaDeAlunos.contains(temp)) {
+            listaDeAlunos.add(temp)
+            println("Aluno ${temp.nome} ${temp.sobrenome} Registrado")
+        }else{
+            println("Código de Aluno Duplicado")
+        }
     }
 
     fun matricularAluno(codigoAluno: Int, codigoCurso: Int){
@@ -43,13 +76,12 @@ class DigitalHouseManager  {
         val tempAluno = listaDeAlunos.find{aluno -> codigoAluno.equals(aluno.codigoAluno)}
 
         if(tempCurso != null && tempAluno != null){
-            if(tempCurso.listaDeAlunos.size < tempCurso.qtdMaxAlunos){
+            if(tempCurso.adicionarUmAluno(tempAluno)){
                 var data = LocalDate.now()
                 listaDeMatriculas.add(Matricula(tempAluno,tempCurso,data))
-                tempCurso.listaDeAlunos.add(tempAluno)
-                println("Matrícula Realizada\nAluno:${tempAluno.nome} ${tempAluno.sobrenome} - Curso: ${tempCurso.nome}")
+                println("Matrícula Realizada - Aluno:${tempAluno.nome} ${tempAluno.sobrenome} - Código:${tempAluno.codigoAluno} - Curso: ${tempCurso.nome}")
             }else{
-                println("Não foi possível realizar a matrícula motivo: Turma Lotada")
+                println("Não foi possível realizar a matrícula do aluno ${tempAluno.nome} ${tempAluno.sobrenome}. Motivo: Turma Lotada")
             }
         }
     }
