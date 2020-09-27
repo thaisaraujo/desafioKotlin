@@ -1,7 +1,6 @@
 package br.com.digitalhouse
 
 import java.time.LocalDate
-import br.com.digitalhouse.Curso as Curso
 
 class DigitalHouseManager  {
 
