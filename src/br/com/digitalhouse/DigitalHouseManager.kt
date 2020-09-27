@@ -27,6 +27,8 @@ class DigitalHouseManager  {
         if(temp != null){
             listaDeCursos.remove(temp)
             println("Curso ${temp.nome} Removido")
+        }else{
+            println("Curso não encontrado")
         }
     }
 
@@ -57,6 +59,8 @@ class DigitalHouseManager  {
         if(temp != null) {
             listaDeProfessores.remove(temp)
             println("Professor ${temp.nome} ${temp.sobrenome} Removido")
+        }else{
+            println("Professor não encontrado")
         }
     }
 
@@ -94,14 +98,9 @@ class DigitalHouseManager  {
         if(tempCurso != null && tempProfessorTitular != null && tempProfessorAdjunto != null){
             tempCurso.professorTitular = tempProfessorTitular as ProfessorTitular
             tempCurso.professorAdjunto = tempProfessorAdjunto as ProfessorAdjunto
+        }else{
+            println("Não foi possivel alocar professores na curso")
         }
     }
-
-
-
-
-
-
-
 
 }
