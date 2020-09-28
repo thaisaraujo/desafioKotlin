@@ -13,15 +13,15 @@ class Curso (val nome: String, val codigoCurso: Int, var qtdMaxAlunos: Int){
 
     override fun toString(): String {
         try {
-            return "\nCurso - Nome$nome | Código do Curso:$codigoCurso | Max de Alunos:$qtdMaxAlunos " +
-                    "| Professor Titular: ${professorTitular.toString()}" +
-                    "| Professor Adjunto: ${professorAdjunto.toString()}" +
-                    "| Lista de Alunos: ${listaDeAlunos.toString()}"
+            return "\nCurso - Nome$nome | Código do Curso:$codigoCurso | Max de Alunos:$qtdMaxAlunos" +
+                    " | Professor Titular: ${professorTitular.nome} ${professorTitular.sobrenome}" +
+                    " | Professor Adjunto: ${professorAdjunto.nome} ${professorAdjunto.sobrenome}" +
+                    " | Lista de Alunos: ${listaDeAlunos.toString()}"
         }catch (ex : Exception){
             return "\nCurso - Nome$nome | Código do Curso:$codigoCurso | Max de Alunos:$qtdMaxAlunos" +
-                    "| Professor Titular não alocado" +
-                    "| Professor Adjunto não alocado" +
-                    "| Não há lista de alunos"
+                    " | Professor Titular não alocado" +
+                    " | Professor Adjunto não alocado" +
+                    " | Não há lista de alunos"
         }
     }
 

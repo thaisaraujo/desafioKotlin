@@ -7,7 +7,7 @@ open class Professor (val nome: String, val sobrenome: String, val tempoCasa: In
     }
 
     override fun toString(): String {
-        return "\nProfessor - Nome:$nome $sobrenome | tempoCasa:$tempoCasa | codigoProfessor:$codigoProfessor"
+        return "\nNome:$nome $sobrenome | tempoCasa:$tempoCasa | codigoProfessor:$codigoProfessor"
     }
 
 

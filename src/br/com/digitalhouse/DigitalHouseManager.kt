@@ -101,4 +101,12 @@ class DigitalHouseManager  {
             println("Não foi possivel alocar Professores no Curso")
         }
     }
+
+    fun consultarCurso(codigoAluno: Int) {
+        for(matricula in listaDeMatriculas){
+            if(matricula.aluno.equals(codigoAluno))
+                println("O aluno ${matricula.aluno.nome} ${matricula.aluno.sobrenome} realizou matricula no curso ${matricula.curso.nome} em ${matricula.data}")
+        }
+    }
+
 }
