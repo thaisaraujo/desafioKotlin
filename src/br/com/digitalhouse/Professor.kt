@@ -3,7 +3,7 @@ package br.com.digitalhouse
 open class Professor (val nome: String, val sobrenome: String, val tempoCasa: Int, val codigoProfessor: Int) {
 
     override fun equals(other: Any?): Boolean {
-        return !(other == null || other != codigoProfessor)
+        return !(other == null || other != this.codigoProfessor)
     }
 
     override fun toString(): String {

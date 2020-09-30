@@ -22,7 +22,7 @@ class DigitalHouseManager  {
     }
 
     fun excluirCurso(codigoCurso: Int){
-        val temp = listaDeCursos.find {curso -> codigoCurso.equals(curso.codigoCurso) }
+        val temp = listaDeCursos.find {curso -> curso.equals(codigoCurso) }
         if(temp != null){
             listaDeCursos.remove(temp)
             println("Curso ${temp.nome} Removido")
@@ -54,7 +54,7 @@ class DigitalHouseManager  {
     }
 
     fun excluirProfessor(codigoProfessor: Int){
-        val temp = listaDeProfessores.find{professor -> codigoProfessor.equals(professor.codigoProfessor)}
+        val temp = listaDeProfessores.find{professor -> professor.equals(codigoProfessor)}
         if(temp != null) {
             listaDeProfessores.remove(temp)
             println("Professor ${temp.nome} ${temp.sobrenome} Removido")
@@ -75,8 +75,8 @@ class DigitalHouseManager  {
     }
 
     fun matricularAluno(codigoAluno: Int, codigoCurso: Int){
-        val tempCurso = listaDeCursos.find {curso -> codigoCurso.equals(curso.codigoCurso)}
-        val tempAluno = listaDeAlunos.find{aluno -> codigoAluno.equals(aluno.codigoAluno)}
+        val tempCurso = listaDeCursos.find {curso -> curso.equals(codigoCurso)}
+        val tempAluno = listaDeAlunos.find{aluno -> aluno.equals(codigoAluno)}
 
         if(tempCurso != null && tempAluno != null){
             if(tempCurso.adicionarUmAluno(tempAluno)){
@@ -90,9 +90,9 @@ class DigitalHouseManager  {
     }
 
     fun alocarProfessores(codigoCurso: Int, codigoProfessorTitular: Int, codigoProfessorAdjunto: Int){
-        val tempCurso = listaDeCursos.find{curso -> codigoCurso.equals(curso.codigoCurso)}
-        val tempProfessorTitular = listaDeProfessores.find{professorTitular -> codigoProfessorTitular.equals(professorTitular.codigoProfessor)}
-        val tempProfessorAdjunto = listaDeProfessores.find{professorAdjunto -> codigoProfessorAdjunto.equals(professorAdjunto.codigoProfessor)}
+        val tempCurso = listaDeCursos.find{curso -> curso.equals(codigoCurso)}
+        val tempProfessorTitular = listaDeProfessores.find{professorTitular -> professorTitular.equals(codigoProfessorTitular)}
+        val tempProfessorAdjunto = listaDeProfessores.find{professorAdjunto -> professorAdjunto.equals(codigoProfessorAdjunto)}
 
         if(tempCurso != null && tempProfessorTitular != null && tempProfessorAdjunto != null){
             tempCurso.professorTitular = tempProfessorTitular as ProfessorTitular

@@ -49,6 +49,38 @@ fun main(){
     println("\n-------------------------------------------------------------------------------------------------------------\n")
     println("CONSULTAR CURSO MATRICULADO")
     digitalHouseManager.consultarCurso(1101)
-    }
+
+    println("\n-------------------------------------------------------------------------------------------------------------")
+    println("-------------------------------------------------------------------------------------------------------------\n")
+    println("TESTE DE PROFESSOR, CURSO e ALUNO COM MESMO CÓDIGO")
+    digitalHouseManager.registrarProfessorTitular("Dolores"," Umbridge", 123,"Front End")
+    digitalHouseManager.registrarProfessorAdjunto("Horácio", "Slughorn", 789, 10)
+    digitalHouseManager.registrarCurso("Back End", 20001, 5)
+    digitalHouseManager.registrarAluno("Sirius", "Black", 1101)
 
 
+    println("\n-------------------------------------------------------------------------------------------------------------")
+    println("-------------------------------------------------------------------------------------------------------------\n")
+    println("TESTE DE MÉTODOS NÃO USADOS ANTES")
+    digitalHouseManager.registrarCurso("UX Design", 30002, 10)
+    digitalHouseManager.registrarProfessorTitular("Rúbeo", "Hagrid", 321, "Product Designer")
+    digitalHouseManager.registrarAluno("Tom", "Riddle", 3301)
+    digitalHouseManager.matricularAluno(3301,30002)
+
+    val tempCurso = digitalHouseManager.listaDeCursos.find { c -> c.equals(30002) }
+    val tempAluno = digitalHouseManager.listaDeAlunos.find { a -> a.equals(3301) }
+    if (tempAluno != null)
+    tempCurso?.excluirUmAluno(tempAluno)
+    digitalHouseManager.excluirCurso(30002)
+    digitalHouseManager.excluirProfessor(321)
+
+
+    println("\n-------------------------------------------------------------------------------------------------------------")
+    println("-------------------------------------------------------------------------------------------------------------\n")
+    println("RESULTADO FINAL DAS OPERAÇÕES")
+    println("${digitalHouseManager.listaDeCursos}\n\n")
+    println("${digitalHouseManager.listaDeAlunos}\n\n")
+    println("${digitalHouseManager.listaDeProfessores}\n\n")
+    println("${digitalHouseManager.listaDeMatriculas}\n\n")
+
+}

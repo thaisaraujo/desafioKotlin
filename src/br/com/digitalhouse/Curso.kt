@@ -8,7 +8,7 @@ class Curso (val nome: String, val codigoCurso: Int, var qtdMaxAlunos: Int){
     val listaDeAlunos = mutableListOf<Aluno>()
 
     override fun equals(other: Any?): Boolean {
-            return !(other == null || other != codigoCurso)
+            return !(other == null || other != this.codigoCurso)
         }
 
     override fun toString(): String {
