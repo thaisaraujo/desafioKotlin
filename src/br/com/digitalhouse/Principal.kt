@@ -50,6 +50,8 @@ fun main(){
     println("CONSULTAR CURSO MATRICULADO")
     digitalHouseManager.consultarCurso(1101)
 
+
+    /* TESTE DOS DEMAIS MÉTODOS*/
     println("\n-------------------------------------------------------------------------------------------------------------")
     println("-------------------------------------------------------------------------------------------------------------\n")
     println("TESTE DE PROFESSOR, CURSO e ALUNO COM MESMO CÓDIGO")

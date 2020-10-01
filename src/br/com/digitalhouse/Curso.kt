@@ -39,7 +39,7 @@ class Curso (val nome: String, val codigoCurso: Int, var qtdMaxAlunos: Int){
             listaDeAlunos.remove(umAluno)
             println("Aluno ${umAluno.nome} ${umAluno.sobrenome} removido do Curso ${this.nome}")
         } else {
-            println("Aluno não encontrado na ista do Curso")
+            println("Aluno não encontrado na lista do Curso")
         }
     }
 
